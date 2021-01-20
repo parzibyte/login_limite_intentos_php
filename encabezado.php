@@ -48,7 +48,7 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
 
 <body>
     <!-- Definición del menú -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-light bg-warning fixed-top">
         <a class="navbar-brand" target="_blank" href="//parzibyte.me/blog"><small>Login con límite de intentos en PHP y MySQL</small>&nbsp;By Parzibyte</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#miNavbar" aria-controls="miNavbar" aria-expanded="false" aria-label="Mostrar u ocultar menú">
             <span class="navbar-toggler-icon"></span>
