@@ -1,32 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de usuario</title>
-</head>
-
-<body>
+<?php include_once "encabezado.php" ?>
+<div class="col-12">
+    <h1>Registro de usuario</h1>
     <form action="registrar_usuario.php" method="post">
-        <input type="email" name="correo" placeholder="Correo electrónico" required>
-        <br>
-        <br>
-        <input type="password" name="palabraSecreta" required placeholder="Contraseña">
-        <br>
-        <br>
-        <input type="password" name="palabraSecretaConfirmar" required placeholder="Confirmar contraseña">
-        <br>
-        <br>
+        <div class="form-group">
+            <label for="correo">Correo electrónico:</label>
+            <input class="form-control" id="correo" type="email" name="correo" placeholder="Correo electrónico" required>
+        </div>
+        <div class="form-group">
+            <label for="palabraSecreta">Contraseña:</label>
+            <input class="form-control" id="palabraSecreta" type="password" name="palabraSecreta" required placeholder="Contraseña">
+        </div>
+        <div class="form-group">
+            <label for="palabraSecretaConfirmar">Confirmar contraseña:</label>
+            <input class="form-control" id="palabraSecretaConfirmar" type="password" name="palabraSecretaConfirmar" required placeholder="Confirmar contraseña">
+        </div>
         <?php
         # si hay un mensaje, mostrarlo
-        if (isset($_GET["mensaje"])) {
-            echo $_GET["mensaje"];
-        }
-        ?>
+        if (isset($_GET["mensaje"])) { ?>
+            <div class="alert alert-info">
+                <?php echo $_GET["mensaje"] ?>
+            </div>
+        <?php } ?>
         <br>
-        <button type="submit">Iniciar sesión</button>
+        <button class="btn btn-success" type="submit">Iniciar sesión</button>
     </form>
-</body>
-
-</html>
+</div>
+<?php include_once "encabezado.php" ?>

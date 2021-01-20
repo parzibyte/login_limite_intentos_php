@@ -13,7 +13,7 @@ if ($valor == 0) {
 } else if ($valor == 2) {
     header("Location: formulario_login.php?mensaje=Límite de intentos alcanzado. Contactar a administrador para reiniciar");
 } else {
-    #Todo bien. Redireccionar a la página
-    # TODO: iniciar sesión
-    header("Location: protegida.php");
+    #Todo bien. Iniciar sesión y redireccionar a la página
+    iniciarSesionDeUsuario();
+    header("Location: usuarios.php");
 }

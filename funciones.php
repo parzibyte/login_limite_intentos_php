@@ -2,6 +2,34 @@
 # El número de intentos máximos
 define("MAXIMOS_INTENTOS", 2);
 
+function iniciarSesionDeUsuario()
+{
+    iniciarSesionSiNoEstaIniciada();
+    $_SESSION["logueado"] = true;
+}
+function cerrarSesion()
+{
+    iniciarSesionSiNoEstaIniciada();
+    session_destroy();
+}
+function usuarioEstaLogueado()
+{
+    iniciarSesionSiNoEstaIniciada();
+    return isset($_SESSION["logueado"]);
+}
+function obtenerUsuariosConIntentosFallidos()
+{
+    $bd = obtenerBaseDeDatos();
+    $sentencia = $bd->query("SELECT usuarios.id, usuarios.correo, (SELECT COUNT(*) FROM intentos_usuarios WHERE id_usuario = usuarios.id) intentos_fallidos FROM usuarios");
+    return $sentencia->fetchAll();
+}
+
+function iniciarSesionSiNoEstaIniciada()
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+}
 
 function registrarUsuario($correo, $palabraSecreta)
 {
@@ -44,7 +72,7 @@ function hacerLogin($correo, $palabraSecreta)
             # Comparar con la proporcionada:
             # Nota: esto es por simplicidad, en la vida real debes hashear las contraseñas
             # https://parzibyte.me/blog/2017/11/13/cifrando-comprobando-contrasenas-en-php/
-            if (hash_equals($palabraSecretaCorrecta, $palabraSecreta)) {
+            if ($palabraSecretaCorrecta === $palabraSecreta) {
                 # Todo correcto. Borramos todos los intentos, pues ya hizo uno exitoso
                 eliminarIntentos($registro->id);
                 return 1;
