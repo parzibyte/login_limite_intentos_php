@@ -12,3 +12,7 @@ CREATE TABLE intentos_usuarios(
     id_usuario BIGINT UNSIGNED NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
+/*
+Un usuario por defecto
+*/
+INSERT INTO usuarios(correo, palabra_secreta) VALUES("parzibyte@gmail.com", "123");
