@@ -53,4 +53,4 @@ También tengo canal de YouTube: https://www.youtube.com/channel/UCroP4BTWjfM0Ck
         <button class="btn btn-success" type="submit">Iniciar sesión</button>
     </form>
 </div>
-<?php include_once "encabezado.php" ?>
+<?php include_once "pie.php" ?>
